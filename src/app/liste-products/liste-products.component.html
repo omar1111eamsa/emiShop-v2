@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <h3>Résultats : {{ products.length }} produits trouvés</h3>
+  <hr>
+
+  <div class="row">
+
+    <div *ngFor="let product of products"
+         class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+
+      <div class="card h-100 shadow-sm">
+
+        <div class="card-img-top bg-light text-center p-4" style="height: 200px;">
+          {{ product.imageUrl }}
+        </div>
+
+        <div class="card-body">
+          <h6 class="card-title">{{ product.name }}</h6>
+          <p class="card-text text-muted small">{{ product.description }}</p>
+          <p class="card-text text-danger fs-5">
+            **{{ product.price }} €** </p>
+          <a (click)="addToCart(product.name)" class="btn btn-warning w-100" style="cursor: pointer;">
+            Ajouter au panier
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
